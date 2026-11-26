@@ -10,33 +10,141 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as IstoriyaLyubviRouteImport } from './routes/istoriya-lyubvi'
+import { Route as KakEtoRabotaetRouteImport } from './routes/kak-eto-rabotaet'
+import { Route as PervyyGodMalyshaRouteImport } from './routes/pervyy-god-malysha'
+import { Route as PodpiskaRouteImport } from './routes/podpiska'
+import { Route as SemeynyZhurnalRouteImport } from './routes/semeyny-zhurnal'
+import { Route as SpecvypuskiRouteImport } from './routes/specvypuski'
+import { Route as ZakazRouteImport } from './routes/zakaz'
+import { Route as ZhurnalPitomcaRouteImport } from './routes/zhurnal-pitomca'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IstoriyaLyubviRoute = IstoriyaLyubviRouteImport.update({
+  id: '/istoriya-lyubvi',
+  path: '/istoriya-lyubvi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KakEtoRabotaetRoute = KakEtoRabotaetRouteImport.update({
+  id: '/kak-eto-rabotaet',
+  path: '/kak-eto-rabotaet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PervyyGodMalyshaRoute = PervyyGodMalyshaRouteImport.update({
+  id: '/pervyy-god-malysha',
+  path: '/pervyy-god-malysha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PodpiskaRoute = PodpiskaRouteImport.update({
+  id: '/podpiska',
+  path: '/podpiska',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SemeynyZhurnalRoute = SemeynyZhurnalRouteImport.update({
+  id: '/semeyny-zhurnal',
+  path: '/semeyny-zhurnal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SpecvypuskiRoute = SpecvypuskiRouteImport.update({
+  id: '/specvypuski',
+  path: '/specvypuski',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZakazRoute = ZakazRouteImport.update({
+  id: '/zakaz',
+  path: '/zakaz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZhurnalPitomcaRoute = ZhurnalPitomcaRouteImport.update({
+  id: '/zhurnal-pitomca',
+  path: '/zhurnal-pitomca',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/istoriya-lyubvi': typeof IstoriyaLyubviRoute
+  '/kak-eto-rabotaet': typeof KakEtoRabotaetRoute
+  '/pervyy-god-malysha': typeof PervyyGodMalyshaRoute
+  '/podpiska': typeof PodpiskaRoute
+  '/semeyny-zhurnal': typeof SemeynyZhurnalRoute
+  '/specvypuski': typeof SpecvypuskiRoute
+  '/zakaz': typeof ZakazRoute
+  '/zhurnal-pitomca': typeof ZhurnalPitomcaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/istoriya-lyubvi': typeof IstoriyaLyubviRoute
+  '/kak-eto-rabotaet': typeof KakEtoRabotaetRoute
+  '/pervyy-god-malysha': typeof PervyyGodMalyshaRoute
+  '/podpiska': typeof PodpiskaRoute
+  '/semeyny-zhurnal': typeof SemeynyZhurnalRoute
+  '/specvypuski': typeof SpecvypuskiRoute
+  '/zakaz': typeof ZakazRoute
+  '/zhurnal-pitomca': typeof ZhurnalPitomcaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/istoriya-lyubvi': typeof IstoriyaLyubviRoute
+  '/kak-eto-rabotaet': typeof KakEtoRabotaetRoute
+  '/pervyy-god-malysha': typeof PervyyGodMalyshaRoute
+  '/podpiska': typeof PodpiskaRoute
+  '/semeyny-zhurnal': typeof SemeynyZhurnalRoute
+  '/specvypuski': typeof SpecvypuskiRoute
+  '/zakaz': typeof ZakazRoute
+  '/zhurnal-pitomca': typeof ZhurnalPitomcaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/istoriya-lyubvi'
+    | '/kak-eto-rabotaet'
+    | '/pervyy-god-malysha'
+    | '/podpiska'
+    | '/semeyny-zhurnal'
+    | '/specvypuski'
+    | '/zakaz'
+    | '/zhurnal-pitomca'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/istoriya-lyubvi'
+    | '/kak-eto-rabotaet'
+    | '/pervyy-god-malysha'
+    | '/podpiska'
+    | '/semeyny-zhurnal'
+    | '/specvypuski'
+    | '/zakaz'
+    | '/zhurnal-pitomca'
+  id:
+    | '__root__'
+    | '/'
+    | '/istoriya-lyubvi'
+    | '/kak-eto-rabotaet'
+    | '/pervyy-god-malysha'
+    | '/podpiska'
+    | '/semeyny-zhurnal'
+    | '/specvypuski'
+    | '/zakaz'
+    | '/zhurnal-pitomca'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  IstoriyaLyubviRoute: typeof IstoriyaLyubviRoute
+  KakEtoRabotaetRoute: typeof KakEtoRabotaetRoute
+  PervyyGodMalyshaRoute: typeof PervyyGodMalyshaRoute
+  PodpiskaRoute: typeof PodpiskaRoute
+  SemeynyZhurnalRoute: typeof SemeynyZhurnalRoute
+  SpecvypuskiRoute: typeof SpecvypuskiRoute
+  ZakazRoute: typeof ZakazRoute
+  ZhurnalPitomcaRoute: typeof ZhurnalPitomcaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +156,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/istoriya-lyubvi': {
+      id: '/istoriya-lyubvi'
+      path: '/istoriya-lyubvi'
+      fullPath: '/istoriya-lyubvi'
+      preLoaderRoute: typeof IstoriyaLyubviRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kak-eto-rabotaet': {
+      id: '/kak-eto-rabotaet'
+      path: '/kak-eto-rabotaet'
+      fullPath: '/kak-eto-rabotaet'
+      preLoaderRoute: typeof KakEtoRabotaetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pervyy-god-malysha': {
+      id: '/pervyy-god-malysha'
+      path: '/pervyy-god-malysha'
+      fullPath: '/pervyy-god-malysha'
+      preLoaderRoute: typeof PervyyGodMalyshaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/podpiska': {
+      id: '/podpiska'
+      path: '/podpiska'
+      fullPath: '/podpiska'
+      preLoaderRoute: typeof PodpiskaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/semeyny-zhurnal': {
+      id: '/semeyny-zhurnal'
+      path: '/semeyny-zhurnal'
+      fullPath: '/semeyny-zhurnal'
+      preLoaderRoute: typeof SemeynyZhurnalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/specvypuski': {
+      id: '/specvypuski'
+      path: '/specvypuski'
+      fullPath: '/specvypuski'
+      preLoaderRoute: typeof SpecvypuskiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zakaz': {
+      id: '/zakaz'
+      path: '/zakaz'
+      fullPath: '/zakaz'
+      preLoaderRoute: typeof ZakazRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zhurnal-pitomca': {
+      id: '/zhurnal-pitomca'
+      path: '/zhurnal-pitomca'
+      fullPath: '/zhurnal-pitomca'
+      preLoaderRoute: typeof ZhurnalPitomcaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  IstoriyaLyubviRoute: IstoriyaLyubviRoute,
+  KakEtoRabotaetRoute: KakEtoRabotaetRoute,
+  PervyyGodMalyshaRoute: PervyyGodMalyshaRoute,
+  PodpiskaRoute: PodpiskaRoute,
+  SemeynyZhurnalRoute: SemeynyZhurnalRoute,
+  SpecvypuskiRoute: SpecvypuskiRoute,
+  ZakazRoute: ZakazRoute,
+  ZhurnalPitomcaRoute: ZhurnalPitomcaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

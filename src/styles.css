@@ -70,42 +70,64 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-signal: var(--signal);
+  --color-signal-deep: var(--signal-deep);
+  --color-rule: var(--rule);
+  --font-display: "Playfair Display", "Times New Roman", serif;
+  --font-sans: "Golos Text", system-ui, sans-serif;
+  --font-label: "Oswald", "Arial Narrow", sans-serif;
+  --shadow-print: var(--print-shadow);
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --radius: 0.125rem;
+  /* Paper & ink: cool-leaning newsprint white, deep press black, one signal red */
+  --paper: oklch(0.972 0.004 85);
+  --paper-deep: oklch(0.945 0.005 85);
+  --ink: oklch(0.165 0.004 60);
+  --ink-soft: oklch(0.36 0.005 60);
+  --signal: oklch(0.49 0.185 27);
+  --signal-deep: oklch(0.42 0.17 27);
+  --rule: oklch(0.165 0.004 60 / 16%);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper-deep);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--signal);
+  --primary-foreground: oklch(0.985 0.003 85);
+  --secondary: var(--paper-deep);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-deep);
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--paper-deep);
+  --accent-foreground: var(--ink);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --destructive-foreground: oklch(0.985 0.003 85);
+  --border: var(--rule);
+  --input: oklch(0.165 0.004 60 / 40%);
+  --ring: var(--signal);
+  --chart-1: var(--signal);
+  --chart-2: var(--ink);
+  --chart-3: var(--ink-soft);
+  --chart-4: var(--paper-deep);
+  --chart-5: var(--signal-deep);
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--signal);
+  --sidebar-primary-foreground: oklch(0.985 0.003 85);
+  --sidebar-accent: var(--paper-deep);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--rule);
+  --sidebar-ring: var(--signal);
+
+  --print-shadow: 0 1px 1px oklch(0.165 0.004 60 / 8%), 0 18px 40px -18px oklch(0.165 0.004 60 / 45%);
 }
 
 .dark {
@@ -149,8 +171,99 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
+
+  ::selection {
+    background: var(--signal);
+    color: var(--paper);
+  }
+}
+
+/* Newspaper headline: heavy, tight, set solid */
+@utility headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.022em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+/* Small spaced caps used for rubric labels and buttons */
+@utility label {
+  font-family: var(--font-label);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
+/* Rubric marker: short red rule, then the label */
+@utility kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  font-family: var(--font-label);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  &::before {
+    content: "";
+    flex: none;
+    width: 2rem;
+    height: 2px;
+    background: var(--signal);
+  }
+}
+
+/* Masthead double rule */
+@utility rule-double {
+  border-bottom: 1px solid currentColor;
+  box-shadow: 0 3px 0 0 var(--background), 0 4px 0 0 currentColor;
+}
+
+/* Red italic emphasis with a hand-drawn underline feel */
+@utility stress {
+  font-style: italic;
+  color: var(--signal);
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.12em;
+}
+
+@utility wrap {
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 48rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility rise {
+  animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
